@@ -1,0 +1,6 @@
+image:
+  repository: smalltown/elasticsearch-operator
+  tag: 0.0.13
+
+rbac:
+  enabled: True

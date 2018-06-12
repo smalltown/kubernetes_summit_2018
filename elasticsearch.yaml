@@ -1,0 +1,17 @@
+clientReplicas: 1
+masterReplicas: 1
+dataReplicas: 1
+dataVolumeSize: 1Gi
+
+image:
+  repository: smalltown/docker-elasticsearch-kubernetes
+  tag: 6.2.4
+
+kibana:
+  enabled: True
+  image: docker.elastic.co/kibana/kibana-oss:6.2.4
+
+cerebro:
+  enabled: True
+
+use-ssl: False
