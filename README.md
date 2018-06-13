@@ -1,9 +1,10 @@
-# Kubernetes Summit 2018 - Kubernetes: Stateless → Stateful
-
+# Kubernetes: Stateless → Stateful
 
 This repository demonstrate how to setup completed ElasticSearch within Kubernetes. And the installation leverage by [ElasticSearch Operator](https://github.com/upmc-enterprises/elasticsearch-operator)
 
 ## Prerequisite
+
+In order to demonstrate Kubernetes Operator , there are two things need to be done first.
 
 ### minikube
 Follow the [official document](https://kubernetes.io/docs/tasks/tools/install-minikube/) to install minikube
@@ -12,6 +13,17 @@ start minikube with custom cpu and memory
 
 ```
 ~$ minikube start --memory 4096 --cpus 4
+
+Starting local Kubernetes v1.10.0 cluster...
+Starting VM...
+Getting VM IP address...
+Moving files into cluster...
+Setting up certs...
+Connecting to cluster...
+Setting up kubeconfig...
+Starting cluster components...
+Kubectl is now configured to use the cluster.
+Loading cached images from config file.
 ```
 
 then check the minikube is running, and the Kubernetes can be accessed
@@ -100,6 +112,21 @@ Cluster name: elasticsearch-cluster
 ```
 
 ## Verification
+
+Check all the necessary Pod are running without problem
+
+```
+~$ kubectl get pod
+
+NAME                                               READY     STATUS    RESTARTS   AGE
+cerebro-elasticsearch-cluster-656f7b8697-wb8df     1/1       Running   3          8h
+elasticsearch-operator-f69b6d958-fv6g4             1/1       Running   6          8h
+elasticsearch-operator-sysctl-w2ttq                1/1       Running   3          8h
+es-client-elasticsearch-cluster-66fbdd4cc5-gg4ll   1/1       Running   3          8h
+es-data-elasticsearch-cluster-default-0            1/1       Running   3          8h
+es-master-elasticsearch-cluster-default-0          1/1       Running   3          8h
+kibana-elasticsearch-cluster-78c866ff7-mdtc2       1/1       Running   3          8h
+```
 
 ### ElasticSearch
 

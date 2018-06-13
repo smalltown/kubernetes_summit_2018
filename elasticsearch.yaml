@@ -2,10 +2,21 @@ clientReplicas: 1
 masterReplicas: 1
 dataReplicas: 1
 dataVolumeSize: 1Gi
+#javaOpts: "-Xms12g -Xmx12g"
 
 image:
   repository: smalltown/docker-elasticsearch-kubernetes
   tag: 6.2.4
+
+#snapshot:
+#  enabled: true
+#  bucketName: kubernetes-summit-2018
+#  schedule: "@daily"
+#  image: smalltown/elasticsearch-cron:0.0.4
+#  authentication:
+#    enabled: false
+#    password: test
+#    username: test
 
 kibana:
   enabled: True
@@ -15,3 +26,14 @@ cerebro:
   enabled: True
 
 use-ssl: False
+
+#storage:
+#  class: us-east-1a
+
+#resources:
+#  requests:
+#    memory: 12Gi
+#    cpu: 500m
+#  limits:
+#    memory: 16Gi
+#    cpu: '2'
